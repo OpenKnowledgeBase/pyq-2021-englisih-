@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEGLA-136 (JUNE 2023) - English at the Workplace</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            color: #333;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin: 0;
+            color: #666;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff4757;
+        }
+
+        main {
+            padding: 20px 0;
+        }
+
+        section {
+            margin-bottom: 40px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        section h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        section h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        section p {
+            font-size: 1em;
+            line-height: 1.5;
+            color: #666;
+        }
+
+        section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        section ul li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        footer span {
+            color: #ff4757;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #333;
+            color: #fff;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        @media (max-width: 768px) {
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+
+        /* Highlighted Words */
+        .highlight {
+            color: #ff4757;
+            font-weight: bold;
+        }
+
+        /* Passive Voice Underline */
+        .underline {
+            text-decoration: underline;
+        }
+
+        /* Letter-like UI for Short Notes */
+        .letter {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+        }
+
+        .letter h4 {
+            margin-top: 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        /* CV Card UI */
+        .cv-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cv-card h4 {
+            margin-top: 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .cv-card .icon {
+            margin-right: 10px;
+            color: #ff4757;
+        }
+
+        .cv-card .section {
+            margin-bottom: 20px;
+        }
+
+        .cv-card .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Letter UI */
+        .letter-ui {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .letter-ui textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .letter-ui button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .letter-ui button:hover {
+            background-color: #ff4757;
+        }
+
+        .letter-output {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            display: none;
+        }
+
+        .letter-output h4 {
+            margin-top: 0;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .letter-output p {
+            margin: 0;
+        }
+
+        /* Icons */
+        .icon {
+            margin-right: 10px;
+            color: #ff4757;
+        }
+
+        /* Input Fields */
+        .input-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .input-section input, .input-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-section button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .input-section button:hover {
+            background-color: #ff4757;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section, .letter, .cv-card, .letter-ui, .letter-output, .input-section {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BEGLA-136 (JUNE 2023)</h1>
+            <p>English at the Workplace - Term-End Examination</p>
+        </header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#answers">Answers</a></li>
+            </ul>
+        </nav>
+        <main>
+            <section id="home">
+                <h2>Welcome to the Study Website</h2>
+                <p>This website is designed to help you prepare for your exams with a clean and neat UI. Dive in, click on the "Answers" link, and unlock the secrets to acing your exams!</p>
+            </section>
+
+            <section id="answers">
+                <h2>BEGLA-136: English at the Workplace</h2>
+
+                <!-- Question 1 -->
+                <div>
+                    <h3>Question 1: Fill in the blanks with the most appropriate words</h3>
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>(i) I have been in this job so long that I feel my career is more or less <span class="highlight">static</span>.</li>
+                        <li>(ii) It is interesting to <span class="highlight">explore</span> the possibilities of different career options.</li>
+                        <li>(iii) It is advisable to take help from <span class="highlight">consultants</span> to find a job.</li>
+                        <li>(iv) Sometimes in the <span class="highlight">competitive</span> world today, jobs are not advertised.</li>
+                        <li>(v) Jobs are advertised in the <span class="highlight">recruitment</span> sections of the newspapers.</li>
+                        <li>(vi) A brilliant idea which occurs suddenly is <span class="highlight">Brainwave</span>.</li>
+                        <li>(vii) A phrase meaning ‘knowing what the ultimate aim is’ <span class="highlight">Goal awareness</span>.</li>
+                        <li>(viii) A phrase referring to ‘a meeting to discuss lots of ideas and collectively choosing the best one’ <span class="highlight">Brainstorming session</span>.</li>
+                        <li>(ix) Remembering something afterwards is <span class="highlight">Recall</span>.</li>
+                        <li>(x) Something that obstructs progress is <span class="highlight">Roadblock</span>.</li>
+                    </ul>
+                </div>
+
+                <!-- Question 2 -->
+                <div>
+                    <h3>Question 2: Make sentences using the following words</h3>
+                    <p><strong>Words:</strong> Contemporary, Digital, Assess, Transmit, Convey</p>
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>(a) <span class="highlight">Contemporary</span>: The museum features contemporary art from around the world.</li>
+                        <li>(b) <span class="highlight">Digital</span>: The company is transitioning to a digital platform for better efficiency.</li>
+                        <li>(c) <span class="highlight">Assess</span>: The teacher will assess the students' performance at the end of the term.</li>
+                        <li>(d) <span class="highlight">Transmit</span>: The radio tower transmits signals across the city.</li>
+                        <li>(e) <span class="highlight">Convey</span>: The manager asked me to convey the message to the team.</li>
+                    </ul>
+                </div>
+
+                <!-- Question 3 -->
+                <div>
+                    <h3>Question 3: Rewrite the sentences in passive voice</h3>
+                    <p><strong>Sentences:</strong></p>
+                    <ul>
+                        <li>(i) She has mastered the subject of science. → The subject of science <span class="underline">has been mastered</span> by her.</li>
+                        <li>(ii) She opened the window. → The window <span class="underline">was opened</span> by her.</li>
+                        <li>(iii) I did not scold him. → He <span class="underline">was not scolded</span> by me.</li>
+                        <li>(iv) The cops caught the thief. → The thief <span class="underline">was caught</span> by the cops.</li>
+                        <li>(v) They redesigned the building. → The building <span class="underline">was redesigned</span> by them.</li>
+                    </ul>
+                </div>
+
+                <!-- Question 4 -->
+                <div>
+                    <h3>Question 4: Fill in the blanks as indicated</h3>
+                    <p><strong>Answers:</strong></p>
+                    <ul>
+                        <li>(i) Simply <span class="highlight">placing</span> an advertisement in a popular daily will fetch us many candidates. (Use gerund of ‘place’)</li>
+                        <li>(ii) The skill of <span class="highlight">reading</span> in English is essential for an office boy’s job here. (Use gerund of ‘read’)</li>
+                        <li>(iii) This is a <span class="highlight">well-paid</span> job. Everyone wants it. (Use appropriate participle of ‘well-pay’)</li>
+                        <li>(iv) Please show me a few samples of a <span class="highlight">cover</span> letter. (Use appropriate participle of ‘cover’)</li>
+                        <li>(v) If I went to bed now, <span class="highlight">I would wake up early</span>. (Use main/if clause)</li>
+                        <li>(vi) What would you do if <span class="highlight">you won the lottery</span>? (Use main/if clause)</li>
+                        <li>(vii) She gave me this ring. She <span class="highlight">would be</span> very upset if I lost it. (Use correct form of ‘be’)</li>
+                        <li>(viii) The litmus paper turns red if we <span class="highlight">dip</span> it in acid. (Use correct form of ‘dip’)</li>
+                        <li>(ix) We <span class="highlight">should not</span> be hasty in coming to conclusions about people. (Use appropriate modal)</li>
+                        <li>(x) I will have completed my task <span class="highlight">by</span> Monday. (Choose the appropriate till/by)</li>
+                    </ul>
+                </div>
+
+                <!-- Question 5 -->
+                <div>
+                    <h3>Question 5: Write short notes (around 150 words each)</h3>
+                    <div class="letter">
+                        <h4><i class="fas fa-folder-open icon"></i> Characteristics of work ethics</h4>
+                        <p>Work ethics refer to a set of values and principles that guide an individual's behavior in the workplace. Key characteristics include honesty, integrity, responsibility, and professionalism. Employees with strong work ethics are punctual, reliable, and committed to their tasks. They demonstrate respect for colleagues and adhere to company policies. Work ethics also involve a positive attitude, teamwork, and a willingness to go the extra mile to achieve organizational goals. Employers value individuals with strong work ethics as they contribute to a productive and harmonious work environment.</p>
+                    </div>
+                    <div class="letter">
+                        <h4><i class="fas fa-handshake icon"></i> Stages of presentation</h4>
+                        <p>A successful presentation typically involves several stages: planning, preparation, delivery, and follow-up. In the planning stage, the presenter identifies the purpose, audience, and key messages. Preparation involves researching the topic, creating visual aids, and rehearsing the presentation. During the delivery stage, the presenter engages the audience, maintains eye contact, and uses effective communication techniques. The follow-up stage includes addressing questions, gathering feedback, and reflecting on the presentation's success. Each stage is crucial for delivering a clear, impactful, and memorable presentation.</p>
+                    </div>
+                </div>
+
+                <!-- Question 6 -->
+                <div>
+                    <h3>Question 6: Prepare a brief CV</h3>
+                    <div class="input-section">
+                        <input type="text" id="cv-name-input" placeholder="Your Name">
+                        <input type="text" id="cv-contact-input" placeholder="Contact Information">
+                        <input type="text" id="cv-email-input" placeholder="Email Address">
+                        <button onclick="generateCV()">Generate CV</button>
+                    </div>
+                    <div class="cv-card" id="cv-output">
+                        <h4><i class="fas fa-user icon"></i> Curriculum Vitae</h4>
+                        <div class="section">
+                            <strong>Name:</strong> <span id="cv-name">[Your Name]</span><br>
+                            <strong>Contact:</strong> <span id="cv-contact">[Your Contact Information]</span><br>
+                            <strong>Email:</strong> <span id="cv-email">[Your Email Address]</span>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-bullseye icon"></i> Objective</h4>
+                            <p>To obtain a position as a <strong>sales manager</strong>, utilizing my skills in sales strategy, team leadership, and customer relationship management to drive business growth and achieve organizational goals.</p>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-graduation-cap icon"></i> Educational Qualifications</h4>
+                            <ul>
+                                <li><strong>Bachelor of Commerce</strong> – XYZ University (2020 - 2023)</li>
+                                <li><strong>High School</strong> – ABC High School (Completed)</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-tools icon"></i> Skills</h4>
+                            <ul>
+                                <li>Proficient in sales strategy and customer relationship management.</li>
+                                <li>Strong leadership and team management skills.</li>
+                                <li>Excellent communication and negotiation skills.</li>
+                                <li>Knowledge of digital marketing and CRM tools.</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-briefcase icon"></i> Professional Experience</h4>
+                            <ul>
+                                <li><strong>Sales Executive</strong> – XYZ Corporation (2021 – Present)</li>
+                                <ul>
+                                    <li>Managed a team of 10 sales representatives.</li>
+                                    <li>Achieved 20% growth in sales within one year.</li>
+                                    <li>Developed and implemented effective sales strategies.</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-trophy icon"></i> Achievements</h4>
+                            <ul>
+                                <li>Awarded "Best Sales Executive" in 2022.</li>
+                                <li>Successfully launched a new product line, increasing revenue by 15%.</li>
+                            </ul>
+                        </div>
+                        <div class="section">
+                            <h4><i class="fas fa-heart icon"></i> Hobbies and Interests</h4>
+                            <ul>
+                                <li>Passionate about reading business and sales-related books.</li>
+                                <li>Enjoys playing cricket and participating in team sports.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div>
+                    <h3>Question 7: Prepare a job application letter</h3>
+                    <div class="input-section">
+                        <input type="text" id="letter-name-input" placeholder="Your Name">
+                        <input type="text" id="letter-address-input" placeholder="Your Address">
+                        <input type="text" id="letter-company-input" placeholder="Company Name">
+                        <input type="text" id="letter-position-input" placeholder="Position Applied For">
+                        <button onclick="generateLetter()">Generate Letter</button>
+                    </div>
+                    <div id="letter-output" class="letter-output">
+                        <h4><i class="fas fa-envelope icon"></i> Job Application Letter</h4>
+                        <p id="letter-text"></p>
+                    </div>
+                </div>
+
+                <!-- Question 8 -->
+                <div>
+                    <h3>Question 8: Interview Questions for Business Development Executive</h3>
+                    <div class="faq">
+                        <div class="question"><i class="fas fa-question icon"></i> Q1: Tell me about yourself.</div>
+                        <div class="answer">A1: I am a results-driven professional with a strong background in business development and sales. I have a proven track record of driving growth and building strong client relationships.</div>
+                        <div class="question"><i class="fas fa-question icon"></i> Q2: Why do you want to work here?</div>
+                        <div class="answer">A2: I admire the company’s innovative approach to business development and believe my skills align with your goals. I am excited to contribute to your success.</div>
+                        <div class="question"><i class="fas fa-question icon"></i> Q3: How do you handle stress?</div>
+                        <div class="answer">A3: I remain calm under pressure by prioritizing tasks and focusing on solutions. I believe in maintaining a positive attitude and seeking support when needed.</div>
+                    </div>
+                </div>
+
+                <!-- Question 9 -->
+                <div>
+                    <h3>Question 9: Outline of a Presentation</h3>
+                    <div class="letter">
+                        <h4><i class="fas fa-chalkboard icon"></i> Outline: Creation of Gender Awareness at the Workplace</h4>
+                        <pre>
+1. Introduction
+   - Importance of gender awareness
+   - Overview of the presentation
+
+2. Understanding Gender Awareness
+   - Definition and significance
+   - Common misconceptions
+
+3. Challenges in the Workplace
+   - Gender bias and discrimination
+   - Lack of inclusivity
+
+4. Strategies for Promoting Gender Awareness
+   - Training and workshops
+   - Inclusive policies and practices
+   - Encouraging open dialogue
+
+5. Conclusion
+   - Summary of key points
+   - Call to action for creating an inclusive workplace
+                        </pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>Made with ❤️ by <span>Robiii</span></p>
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript for CV Form
+        function generateCV() {
+            const name = document.getElementById('cv-name-input').value;
+            const contact = document.getElementById('cv-contact-input').value;
+            const email = document.getElementById('cv-email-input').value;
+
+            document.getElementById('cv-name').textContent = name;
+            document.getElementById('cv-contact').textContent = contact;
+            document.getElementById('cv-email').textContent = email;
+        }
+
+        // JavaScript for Job Application Letter
+        function generateLetter() {
+            const name = document.getElementById('letter-name-input').value;
+            const address = document.getElementById('letter-address-input').value;
+            const company = document.getElementById('letter-company-input').value;
+            const position = document.getElementById('letter-position-input').value;
+
+            const letterContent = `
+                ${name}<br>
+                ${address}<br>
+                [Date]<br><br>
+                To,<br>
+                The Hiring Manager,<br>
+                ${company},<br>
+                [Company Address]<br><br>
+                Subject: Application for the Position of ${position}<br><br>
+                Dear Sir/Madam,<br><br>
+                I am writing to express my interest in the ${position} position at ${company}, as advertised in [Source]. With a strong background in sales and business development, I am confident that my skills and experience align with the requirements of the role.<br><br>
+                During my professional journey, I have successfully managed sales teams, developed effective strategies, and achieved significant growth in revenue. I possess excellent communication and leadership skills, enabling me to build strong client relationships and drive business success. My dedication to achieving results and my commitment to fostering teamwork make me a strong candidate for this position.<br><br>
+                Enclosed is my CV, which provides further details on my qualifications and achievements. I would welcome the opportunity to discuss how I can contribute to the growth and success of your esteemed organization.<br><br>
+                Thank you for considering my application. I look forward to the opportunity to interview with you.<br><br>
+                Sincerely,<br>
+                ${name}
+            `;
+
+            document.getElementById('letter-text').innerHTML = letterContent;
+            document.getElementById('letter-output').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
